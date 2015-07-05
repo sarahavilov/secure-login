@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Ayarlar...">
+<!ENTITY menupasswords.label "Kayıtlı parolalar...">
+<!ENTITY menupassexceptions.label "Parolaları kaydet - istisnalar...">
+<!ENTITY menuexceptions.label "JavaScript koruması - istisnalar...">
+<!ENTITY options.title "Secure Login Ayarları">
+<!ENTITY prefpanemainlabel "Ana">
+<!ENTITY prefpaneadvancedlabel "İleri">
+<!ENTITY prefpaneguilabel "Arayüz">
+<!ENTITY shortcuttext.label "Klavye kısayolu">
+<!ENTITY shortcutapply.label "Uygula">
+<!ENTITY shortcutdisable.label "İnaktif">
+<!ENTITY shortcutinfo.label "Klavye kısayolu ayarları sadece yeni Firefox pencerelerinde etkin olur.">
+<!ENTITY viewcaption.label "Görünüm">
+<!ENTITY hidestatusbaricon.label "Durum çubuğu ikonunu gizle">
+<!ENTITY hidetoolsmenu.label "Araçlar menüsündeki seçeneği gizle">
+<!ENTITY hidecontextmenuitem.label "Sağ tık menüsündeki seçeneği gizle">
+<!ENTITY hidetoolbarbutton.label "Araç çubuğu düğmesini sakla">
+<!ENTITY hidetoolbarbuttonmenu.label "Araç çubuğu düğme menüsünü sakla">
+<!ENTITY generalcaption.label "Genel">
+<!ENTITY searchloginsonload.label "Otomatik olarak Login verilerini araştır ve formdaki ilgili yerleri işaretle göster">
+<!ENTITY skipduplicateactionforms.label "Birbirinin aynısı login formlarını görmezden gel">
+<!ENTITY autosubmitform.label "Login formunu otomatik gönder">
+<!ENTITY javascriptprotection.label "Login esnasında JavaScript korumasını etkinleştir">
+<!ENTITY showexceptions.label "İstisnalar...">
+<!ENTITY soundcaption.label "Sesler">
+<!ENTITY playLoginFoundSound.label "Login verisi bulunursa ses çal">
+<!ENTITY playLoginSound.label "Login esnasında ses çal">
+<!ENTITY chooseFile.label "Seç...">
+<!ENTITY playSound.label "Oynat">
+<!ENTITY autofillformscaption.label "Otomatik Tamamla form uyumluluğu">
+<!ENTITY autofillformsonlogin.label "Login sırasında, ekstra form alanlarını otomatik doldur">
+<!ENTITY autofillformsmenu.label "Formları otomatik doldur">
+<!ENTITY exceptions.title "JavaScript koruma istasnaları">
+<!ENTITY exceptions.label "JavaScript korumasının kullanılmayacağı web siteleri">
+<!ENTITY exceptionsitehead.label "Web sitesi">
+<!ENTITY addexception.label "Ekle">
+<!ENTITY removeselected.label "Kaldır">
+<!ENTITY removeall.label "Tümünü kaldır">
+<!ENTITY secureloginbookmarks.label "Secure Login yer imlerini etkinleştir">
+<!ENTITY addsecureloginbookmark.label "Secure Login yer imi ekle...">
+<!ENTITY help.label "Yardım...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

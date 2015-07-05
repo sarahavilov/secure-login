@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Options ...">
+<!ENTITY menupasswords.label "Mots de passe enregistrés ...">
+<!ENTITY menupassexceptions.label "Mots de passe enregistrés - exceptions ...">
+<!ENTITY menuexceptions.label "Protection JavaScript - exceptions ...">
+<!ENTITY options.title "Paramétrage de &apos;Secure Login&apos;">
+<!ENTITY prefpanemainlabel "Principal">
+<!ENTITY prefpaneadvancedlabel "Avancé">
+<!ENTITY prefpaneguilabel "Interface">
+<!ENTITY shortcuttext.label "Raccourci-clavier :">
+<!ENTITY shortcutapply.label "Appliquer">
+<!ENTITY shortcutdisable.label "Désactiver">
+<!ENTITY shortcutinfo.label "Le raccourci-clavier ne sera pris en compte que dans une nouvelle fenêtre Firefox.">
+<!ENTITY viewcaption.label "Affichage">
+<!ENTITY hidestatusbaricon.label "Ne pas afficher l&apos;icône dans la barre d&apos;état">
+<!ENTITY hidetoolsmenu.label "Ne pas afficher l&apos;entrée dans le menu Outils">
+<!ENTITY hidecontextmenuitem.label "Ne pas afficher l&apos;entrée dans le menu contextuel">
+<!ENTITY hidetoolbarbutton.label "Ne pas afficher le bouton dans la barre d&apos;outils">
+<!ENTITY hidetoolbarbuttonmenu.label "Ne pas afficher de menu au bouton dans la barre d&apos;outils">
+<!ENTITY generalcaption.label "Général">
+<!ENTITY searchloginsonload.label "Rechercher automatiquement des données de connexion et surligner les champs de formulaire">
+<!ENTITY skipduplicateactionforms.label "Sauter les champs de connexion dupliqués">
+<!ENTITY autosubmitform.label "Envoyer le formulaire de connexion automatiquement">
+<!ENTITY javascriptprotection.label "Activer la protection JavaScript à la connexion">
+<!ENTITY showexceptions.label "Exceptions ...">
+<!ENTITY soundcaption.label "Sons">
+<!ENTITY playLoginFoundSound.label "Jouer un son lorsque des identifiants ont été trouvés">
+<!ENTITY playLoginSound.label "Jouer un son à la connexion">
+<!ENTITY chooseFile.label "Parcourir ...">
+<!ENTITY playSound.label "Jouer">
+<!ENTITY autofillformscaption.label "Intégration du remplissage automatique de formulaire">
+<!ENTITY autofillformsonlogin.label "Remplir les champs additionnels à la connexion">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "Exceptions de protection JavaScript">
+<!ENTITY exceptions.label "Sites Web, pour lesquels la protection JavaScript ne sera pas utilisée">
+<!ENTITY exceptionsitehead.label "Site Web">
+<!ENTITY addexception.label "Ajouter">
+<!ENTITY removeselected.label "Supprimer">
+<!ENTITY removeall.label "Tout supprimer">
+<!ENTITY secureloginbookmarks.label "Permettre les marque-pages Secure Login">
+<!ENTITY addsecureloginbookmark.label "Ajouter le marque-page Secure Login ...">
+<!ENTITY help.label "Aide ...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

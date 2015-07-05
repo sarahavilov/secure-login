@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Налаштування Secure Login...">
+<!ENTITY menupasswords.label "Збережені паролі...">
+<!ENTITY menupassexceptions.label "Збережені паролі — винятки...">
+<!ENTITY menuexceptions.label "JavaScript-захист — винятки...">
+<!ENTITY options.title "Налаштування Secure Login">
+<!ENTITY prefpanemainlabel "Основні">
+<!ENTITY prefpaneadvancedlabel "Додатково">
+<!ENTITY prefpaneguilabel "Інтерфейс">
+<!ENTITY shortcuttext.label "Швидкий виклик Secure Login:">
+<!ENTITY shortcutapply.label "Застосувати">
+<!ENTITY shortcutdisable.label "Відключити">
+<!ENTITY shortcutinfo.label "Клавіатурні скорочення набудуть чинності тільки в новому вікні браузера.">
+<!ENTITY viewcaption.label "Зовнішній вигляд">
+<!ENTITY hidestatusbaricon.label "Приховувати значок «Secure Login» в рядку стану">
+<!ENTITY hidetoolsmenu.label "Не показувати Secure Login в меню «Інструменти»">
+<!ENTITY hidecontextmenuitem.label "Не показувати в контекстному меню">
+<!ENTITY hidetoolbarbutton.label "Приховати кнопку на панелі інструментів">
+<!ENTITY hidetoolbarbuttonmenu.label "Приховати меню на панелі інструментів">
+<!ENTITY generalcaption.label "Основні">
+<!ENTITY searchloginsonload.label "Автоматично шукати реєстраційну інформацію і підсвічувати поля">
+<!ENTITY skipduplicateactionforms.label "Пропускати повторні форми авторизації">
+<!ENTITY autosubmitform.label "Відправляти реєстраційну інформацію автоматично">
+<!ENTITY javascriptprotection.label "Активувати JavaScript-захист при реєстрації">
+<!ENTITY showexceptions.label "Винятки ...">
+<!ENTITY soundcaption.label "Звуки">
+<!ENTITY playLoginFoundSound.label "Програвати аудіофайл, якщо знайдена інформація про реєстрацію">
+<!ENTITY playLoginSound.label "Програвати аудіофайл при реєстрації">
+<!ENTITY chooseFile.label "Огляд ...">
+<!ENTITY playSound.label "Прослухати">
+<!ENTITY autofillformscaption.label "Інтеграція з розширенням Autofill Forms">
+<!ENTITY autofillformsonlogin.label "Автоматично заповнювати додаткові поля при реєстрації">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "Винятки для JavaScript-захисту">
+<!ENTITY exceptions.label "Веб-сайти, для яких JavaScript-захист не використовуватиметься">
+<!ENTITY exceptionsitehead.label "Веб-сайт">
+<!ENTITY addexception.label "Додати">
+<!ENTITY removeselected.label "Видалити">
+<!ENTITY removeall.label "Очистити список">
+<!ENTITY secureloginbookmarks.label "Використовувати закладки Secure Login">
+<!ENTITY addsecureloginbookmark.label "Додати закладку Secure Login ...">
+<!ENTITY help.label "Довідка по Secure Login ...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

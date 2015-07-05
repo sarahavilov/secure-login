@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://secureLogin/skin/secureLoginExceptions.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://secureLogin/locale/secureLogin.dtd">
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="secureLoginExceptions"
+	title="&exceptions.title;"
+	buttons="accept,cancel,help"
+	ondialoghelp="secureLogin.openHelp(event.target.currentPane.helpTopic);"
+	persist="screenX screenY">
+	<prefpane
+		id="secureLoginExceptionsPane"
+		label="&exceptions.title;"
+		flex="1"
+		helpTopic="Javascript Protection">
+		<vbox id="exceptions" flex="1">
+			<description>&exceptions.label;</description>
+			<separator class="thin"/>
+			<hbox>
+				<textbox id="addExceptionTextbox" flex="1" />
+				<button id="addExceptionButton" icon="add" label="&addexception.label;" oncommand="secureLogin.exceptionsAdd(event);"/>
+			</hbox>
+			<separator class="thin"/>
+			<tree id="exceptionsTree" flex="1" hidecolumnpicker="true" onkeypress="secureLogin.exceptionsHandleKeyPress(event)" onselect="secureLogin.exceptionsSelected(event);">
+				<treecols>
+					<treecol id="exceptionsCol" label="&exceptionsitehead.label;" flex="5" onclick="secureLogin.exceptionsSort(event);"/>
+				</treecols>
+				<treechildren id="exceptionsTreeChildren" />
+			</tree>
+			<separator class="thin"/>
+			<hbox>
+				<button id="removeSelectedButton" disabled="true" icon="remove" label="&removeselected.label;" oncommand="secureLogin.exceptionsRemoveSelected(event);"/>
+				<button id="removeAllButton" disabled="true" icon="clear" label="&removeall.label;" oncommand="secureLogin.exceptionsRemoveAll(event);"/>
+			</hbox>
+		</vbox>
+	</prefpane>
+	<script
+		type="application/x-javascript"
+		src="chrome://secureLogin/content/secureLogin.js"
+	/>
+	<script
+		type="application/x-javascript"
+		src="chrome://secureLogin/content/secureLoginExceptions.js"
+	/>
+	<stringbundleset id="stringbundleset">
+		<stringbundle
+			id="secureLoginStringBundle"
+			src="chrome://secureLogin/locale/secureLogin.properties"
+		/>
+	</stringbundleset>
+</prefwindow>

@@ -1,0 +1,48 @@
+@import url(chrome://global/skin/);
+
+#secureLoginPrefs radio[pane] {
+	list-style-image: url("chrome://securelogin/skin/sl-options.png");
+}
+/* -moz-image-region: rect(top, right, bottom, left); */
+#secureLoginPrefs radio[pane="secureLoginPrefPaneMain"] {
+	-moz-image-region: rect(0px, 32px, 32px, 0px);
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneMain"]:hover, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneMain"][selected="true"] {
+	-moz-image-region: rect(32px, 32px,  64px, 0px);
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneMain"]:hover:active, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneMain"][selected="true"] {
+	-moz-image-region: rect(64px, 32px, 96px, 0px)
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneAdvanced"] {
+	-moz-image-region: rect(0px, 64px, 32px, 32px);
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneAdvanced"]:hover, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneAdvanced"][selected="true"] {
+	-moz-image-region: rect(32px, 64px, 64px, 32px)
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneAdvanced"]:hover:active, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneAdvanced"][selected="true"] {
+	-moz-image-region: rect(64px, 64px, 96px, 32px)
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneGUI"] {
+	-moz-image-region: rect(0px, 96px,  32px, 64px);
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneGUI"]:hover, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneGUI"][selected="true"] {
+	-moz-image-region: rect(32px, 96px,  64px, 64px)
+}
+#secureLoginPrefs radio[pane="secureLoginPrefPaneGUI"]:hover:active, 
+#secureLoginPrefs radio[pane="secureLoginPrefPaneGUI"][selected="true"] {
+	-moz-image-region: rect(64px, 96px,  96px, 64px)
+}
+
+#highlightColorPicker {
+	margin-right:5px;
+}
+
+#keyboardShortcut {
+	min-width:200px;
+	font-family:monospace;
+}

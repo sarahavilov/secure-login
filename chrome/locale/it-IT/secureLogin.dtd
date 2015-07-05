@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "L">
+<!ENTITY menuoptions.label "Opzioni di Secure Login...">
+<!ENTITY menupasswords.label "Password salvate...">
+<!ENTITY menupassexceptions.label "Password salvate - eccezioni...">
+<!ENTITY menuexceptions.label "Protezione JavaScript - eccezioni...">
+<!ENTITY options.title "Opzioni di Secure Login">
+<!ENTITY prefpanemainlabel "Principali">
+<!ENTITY prefpaneadvancedlabel "Avanzate">
+<!ENTITY prefpaneguilabel "Interfaccia">
+<!ENTITY shortcuttext.label "Scorciatoia da tastiera di Secure Login:">
+<!ENTITY shortcutapply.label "Applica">
+<!ENTITY shortcutdisable.label "Disattiva">
+<!ENTITY shortcutinfo.label "Le modifiche apportate alla scorciatoia da tastiera saranno applicate alle nuove finestre di Firefox">
+<!ENTITY viewcaption.label "Visualizza">
+<!ENTITY hidestatusbaricon.label "Non visualizzare l&apos;icona di Secure Login nella barra di stato">
+<!ENTITY hidetoolsmenu.label "Non visualizzare le opzioni di Secure Login nel menu Strumenti">
+<!ENTITY hidecontextmenuitem.label "Non visualizzare il menu contestuale">
+<!ENTITY hidetoolbarbutton.label "Non visualizzare il pulsante sulla barra degli strumenti">
+<!ENTITY hidetoolbarbuttonmenu.label "Non visualizzare il menu relativo al pulsante sulla barra degli strumenti">
+<!ENTITY generalcaption.label "Generali">
+<!ENTITY searchloginsonload.label "Cerca automaticamente i dati relativi all&apos;accesso ed evidenzia i campi del modulo">
+<!ENTITY skipduplicateactionforms.label "Non segnalare i moduli di accesso duplicati">
+<!ENTITY autosubmitform.label "Invia automaticamente il modulo di accesso">
+<!ENTITY javascriptprotection.label "Attiva la protezione JavaScript durante l&apos;accesso">
+<!ENTITY showexceptions.label "Eccezioni...">
+<!ENTITY soundcaption.label "Suoni">
+<!ENTITY playLoginFoundSound.label "Riproduci un suono quando vengono rilevati dei dati di accesso alla pagina visualizzata">
+<!ENTITY playLoginSound.label "Riproduci un suono all&apos;accesso">
+<!ENTITY chooseFile.label "Sfoglia...">
+<!ENTITY playSound.label "Riproduci suono">
+<!ENTITY autofillformscaption.label "Integrazione con &apos;Autofill Forms&apos;">
+<!ENTITY autofillformsonlogin.label "Compila automaticamente ulteriori campi del modulo all&apos;accesso">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "Eccezioni relative alla protezione JavaScript">
+<!ENTITY exceptions.label "Siti web per cui non sarà attiva la protezione JavaScript">
+<!ENTITY exceptionsitehead.label "Sito web">
+<!ENTITY addexception.label "Aggiungi">
+<!ENTITY removeselected.label "Elimina">
+<!ENTITY removeall.label "Elimina tutti">
+<!ENTITY secureloginbookmarks.label "Attiva Segnalibri di Secure Login">
+<!ENTITY addsecureloginbookmark.label "Aggiungi Segnalibro di Secure Login">
+<!ENTITY help.label "Guida...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

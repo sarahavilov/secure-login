@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Settings...">
+<!ENTITY menupasswords.label "Saved passwords...">
+<!ENTITY menupassexceptions.label "Save passwords - exceptions...">
+<!ENTITY menuexceptions.label "JavaScript protection - exceptions...">
+<!ENTITY options.title "Secure Login Settings">
+<!ENTITY prefpanemainlabel "Main">
+<!ENTITY prefpaneadvancedlabel "Advanced">
+<!ENTITY prefpaneguilabel "Interface">
+<!ENTITY shortcuttext.label "Keyboard shortcut:">
+<!ENTITY shortcutapply.label "Apply">
+<!ENTITY shortcutdisable.label "Disable">
+<!ENTITY shortcutinfo.label "Keyboard shortcut changes only take effect in a new Firefox window.">
+<!ENTITY viewcaption.label "View">
+<!ENTITY hidestatusbaricon.label "Hide statusbar icon">
+<!ENTITY hidetoolsmenu.label "Hide entry in Tools menu">
+<!ENTITY hidecontextmenuitem.label "Hide context menu item">
+<!ENTITY hidetoolbarbutton.label "Hide toolbar button">
+<!ENTITY hidetoolbarbuttonmenu.label "Hide toolbar button menu">
+<!ENTITY generalcaption.label "General">
+<!ENTITY searchloginsonload.label "Automatically search for login data and highlight form fields">
+<!ENTITY skipduplicateactionforms.label "Skip duplicate login forms">
+<!ENTITY autosubmitform.label "Submit login form automatically">
+<!ENTITY javascriptprotection.label "Activate JavaScript protection on login">
+<!ENTITY showexceptions.label "Exceptions...">
+<!ENTITY soundcaption.label "Sounds">
+<!ENTITY playLoginFoundSound.label "Play sound when login data found">
+<!ENTITY playLoginSound.label "Play sound on login">
+<!ENTITY chooseFile.label "Choose...">
+<!ENTITY playSound.label "Play">
+<!ENTITY autofillformscaption.label "Autofill Forms Integration">
+<!ENTITY autofillformsonlogin.label "Fill out additional form fields automatically on login">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "JavaScript protection Exceptions">
+<!ENTITY exceptions.label "Websites, for which the JavaScript protection will not be used">
+<!ENTITY exceptionsitehead.label "Website">
+<!ENTITY addexception.label "Add">
+<!ENTITY removeselected.label "Remove">
+<!ENTITY removeall.label "Remove all">
+<!ENTITY secureloginbookmarks.label "Enable Secure Login Bookmarks">
+<!ENTITY addsecureloginbookmark.label "Add Secure Login Bookmark...">
+<!ENTITY help.label "Help...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

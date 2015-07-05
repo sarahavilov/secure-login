@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Bezpečné přihlášení">
+<!ENTITY toolsmenu.label "Bezpečné přihlášení">
+<!ENTITY logincontextmenuitem.label "Bezpečné přihlášení">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Nastavení">
+<!ENTITY menupasswords.label "Uložená hesla">
+<!ENTITY menupassexceptions.label "Uložená hesla - výjimky">
+<!ENTITY menuexceptions.label "JavaScriptová ochrana - výjimky">
+<!ENTITY options.title "Nastavení Bezpečného Přihlášení">
+<!ENTITY prefpanemainlabel "Hlavní">
+<!ENTITY prefpaneadvancedlabel "Pokročilé">
+<!ENTITY prefpaneguilabel "Rozhraní">
+<!ENTITY shortcuttext.label "Klávesová zkratka:">
+<!ENTITY shortcutapply.label "Použít">
+<!ENTITY shortcutdisable.label "Vypnout">
+<!ENTITY shortcutinfo.label "Novou klávesovou zkratku můžete použít až v novém okně Firefoxu.">
+<!ENTITY viewcaption.label "Zobrazení">
+<!ENTITY hidestatusbaricon.label "Skrýt ikonu ve stavovém řádku">
+<!ENTITY hidetoolsmenu.label "Skrýt položku v nabídce Nástroje">
+<!ENTITY hidecontextmenuitem.label "Skrýt položku v místní nabídce">
+<!ENTITY hidetoolbarbutton.label "Skrýt tlačítko v nástrojové liště">
+<!ENTITY hidetoolbarbuttonmenu.label "Skrýt nabídku tlačítka v nástrojové liště">
+<!ENTITY generalcaption.label "Hlavní nastavení">
+<!ENTITY searchloginsonload.label "Automaticky hledat přihlašovací údaje a zvýrazňovat přihlašovací formuláře">
+<!ENTITY skipduplicateactionforms.label "Přeskočit duplikátní přihlašovací formuláře">
+<!ENTITY autosubmitform.label "Automaticky zvýraznit přihlašovací formulář">
+<!ENTITY javascriptprotection.label "Zapnout JavaScriptovou ochranu při přihlášení">
+<!ENTITY showexceptions.label "Výjimky">
+<!ENTITY soundcaption.label "Zvuky">
+<!ENTITY playLoginFoundSound.label "Přehrát zvuk při nalezení přihlašovacích údajů">
+<!ENTITY playLoginSound.label "Přehrát zvuk při přihlášení">
+<!ENTITY chooseFile.label "Vybrat...">
+<!ENTITY playSound.label "Přehrát">
+<!ENTITY autofillformscaption.label "Integrace s Autofill Forms">
+<!ENTITY autofillformsonlogin.label "Vyplnit dodatečná pole formuláře automaticky při přihlášení">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "JavaScriptová ochrana - Výjimky">
+<!ENTITY exceptions.label "Stránky, pro které nebude ochrana JavaScriptem použita">
+<!ENTITY exceptionsitehead.label "Webové stránky">
+<!ENTITY addexception.label "Přidat">
+<!ENTITY removeselected.label "Odstranit">
+<!ENTITY removeall.label "Odstranit vše">
+<!ENTITY secureloginbookmarks.label "Zapnout Bezpečné Záložkové Přihlášení">
+<!ENTITY addsecureloginbookmark.label "Přidat záložku Bezpečného Přihlášení...">
+<!ENTITY help.label "Nápověda">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

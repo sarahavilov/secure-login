@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Conectare securizată">
+<!ENTITY toolsmenu.label "Conectare securizată">
+<!ENTITY logincontextmenuitem.label "Conectare securizată">
+<!ENTITY logincontextmenuitem.accesskey "s">
+<!ENTITY menuoptions.label "Configurare…">
+<!ENTITY menupasswords.label "Parole salvate…">
+<!ENTITY menupassexceptions.label "Parole salvate - excepţii…">
+<!ENTITY menuexceptions.label "Protecţie JavaScript - excepţii…">
+<!ENTITY options.title "Configurare conectare securizată">
+<!ENTITY prefpanemainlabel "General">
+<!ENTITY prefpaneadvancedlabel "Complex">
+<!ENTITY prefpaneguilabel "Interfaţă">
+<!ENTITY shortcuttext.label "Scurtături">
+<!ENTITY shortcutapply.label "Aplică">
+<!ENTITY shortcutdisable.label "Elimină">
+<!ENTITY shortcutinfo.label "(Modificările vor fi valabile după repornirea Firefox.)">
+<!ENTITY viewcaption.label "Vizualizare">
+<!ENTITY hidestatusbaricon.label "Ascunde pictograma din bara de stare">
+<!ENTITY hidetoolsmenu.label "Ascunde opţiunea din meniul Unelte">
+<!ENTITY hidecontextmenuitem.label "Ascunde opţiunea din meniul contextual">
+<!ENTITY hidetoolbarbutton.label "Ascunde butonul din bara de instrumente">
+<!ENTITY hidetoolbarbuttonmenu.label "Ascunde meniul butonului din bara de instrumente">
+<!ENTITY generalcaption.label "General">
+<!ENTITY searchloginsonload.label "Caută automat datele de conectare şi evidenţiază câmpurile din formular">
+<!ENTITY skipduplicateactionforms.label "Evită duplicarea formularului de conectare">
+<!ENTITY autosubmitform.label "Trimite automat datele din formularul de conectare">
+<!ENTITY javascriptprotection.label "Activează protecţia JavaScript la conectare">
+<!ENTITY showexceptions.label "Excepţii…">
+<!ENTITY soundcaption.label "Sunete">
+<!ENTITY playLoginFoundSound.label "Emite un sunet când sunt găsite datele de conectare">
+<!ENTITY playLoginSound.label "Emite un sunet la conectare">
+<!ENTITY chooseFile.label "Alege…">
+<!ENTITY playSound.label "Redă">
+<!ENTITY autofillformscaption.label "Completare automată a formularului">
+<!ENTITY autofillformsonlogin.label "Completează automat câmpurile adiţionale la conectare">
+<!ENTITY autofillformsmenu.label "Completare automată">
+<!ENTITY exceptions.title "Excepţii la protecţia JavaScript">
+<!ENTITY exceptions.label "Saituri pentru care protecţia JavaScript nu va fi utilizată">
+<!ENTITY exceptionsitehead.label "Sait">
+<!ENTITY addexception.label "Adaugă">
+<!ENTITY removeselected.label "Elimină">
+<!ENTITY removeall.label "Elimină-le pe toate">
+<!ENTITY secureloginbookmarks.label "Permite adăugarea semnelor de carte pentru conectarea securizată">
+<!ENTITY addsecureloginbookmark.label "Adaugă semn de carte pentru conectarea securizată…">
+<!ENTITY help.label "Ajutor…">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">

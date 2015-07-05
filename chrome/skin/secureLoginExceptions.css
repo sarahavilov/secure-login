@@ -1,0 +1,6 @@
+@import url(chrome://global/skin/);
+
+#exceptionsTree {
+	min-width:300px;
+	min-height:10em;
+}

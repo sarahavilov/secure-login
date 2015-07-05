@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Einstellungen...">
+<!ENTITY menupasswords.label "Gespeicherte Passwörter...">
+<!ENTITY menupassexceptions.label "Passwörter speichern - Ausnahmen...">
+<!ENTITY menuexceptions.label "JavaScript-Schutz - Ausnahmen...">
+<!ENTITY options.title "Secure Login - Einstellungen">
+<!ENTITY prefpanemainlabel "Allgemein">
+<!ENTITY prefpaneadvancedlabel "Erweitert">
+<!ENTITY prefpaneguilabel "Oberfläche">
+<!ENTITY shortcuttext.label "Tastaturkürzel:">
+<!ENTITY shortcutapply.label "Übernehmen">
+<!ENTITY shortcutdisable.label "Deaktivieren">
+<!ENTITY shortcutinfo.label "Eine Änderung des Tastaturkürzels wird erst in einem neuen Firefox-Fenster wirksam.">
+<!ENTITY viewcaption.label "Ansicht">
+<!ENTITY hidestatusbaricon.label "Statusleisten-Symbol ausblenden">
+<!ENTITY hidetoolsmenu.label "Menüeintrag im Extras-Menü ausblenden">
+<!ENTITY hidecontextmenuitem.label "Kontextmenüeintrag ausblenden">
+<!ENTITY hidetoolbarbutton.label "Symbolleistenschaltfläche ausblenden">
+<!ENTITY hidetoolbarbuttonmenu.label "Symbolleistenschaltflächen-Menü ausblenden">
+<!ENTITY generalcaption.label "Allgemein">
+<!ENTITY searchloginsonload.label "Automatisch nach Login-Daten suchen und Formularfelder hervorheben">
+<!ENTITY skipduplicateactionforms.label "Doppelt vorhandene Login-Formulare überspringen">
+<!ENTITY autosubmitform.label "Login-Formular automatisch abschicken">
+<!ENTITY javascriptprotection.label "JavaScript-Schutz beim Einloggen aktivieren">
+<!ENTITY showexceptions.label "Ausnahmen...">
+<!ENTITY soundcaption.label "Klänge">
+<!ENTITY playLoginFoundSound.label "Klang abspielen, wenn Login-Daten gefunden wurden">
+<!ENTITY playLoginSound.label "Klang beim Einloggen abspielen">
+<!ENTITY chooseFile.label "Durchsuchen...">
+<!ENTITY playSound.label "Abspielen">
+<!ENTITY autofillformscaption.label "Autofill Forms Integration">
+<!ENTITY autofillformsonlogin.label "Zusätzliche Formular-Felder beim Login automatisch Ausfüllen">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "JavaScript-Schutz - Ausnahmen">
+<!ENTITY exceptions.label "Websites, bei denen der JavaScript-Schutz nicht angewendet wird">
+<!ENTITY exceptionsitehead.label "Website">
+<!ENTITY addexception.label "Hinzufügen">
+<!ENTITY removeselected.label "Entfernen">
+<!ENTITY removeall.label "Alle entfernen">
+<!ENTITY secureloginbookmarks.label "Secure Login Lesezeichen aktivieren">
+<!ENTITY addsecureloginbookmark.label "Secure Login Lesezeichen hinzufügen...">
+<!ENTITY help.label "Hilfe...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
+<!ENTITY generatepassword.label "Generate a random password">
