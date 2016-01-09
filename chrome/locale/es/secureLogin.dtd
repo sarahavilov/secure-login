@@ -1,0 +1,48 @@
+<!ENTITY toolbarbutton.label "Secure Login">
+<!ENTITY toolsmenu.label "Secure Login">
+<!ENTITY logincontextmenuitem.label "Secure Login">
+<!ENTITY logincontextmenuitem.accesskey "l">
+<!ENTITY menuoptions.label "Configuración...">
+<!ENTITY menupasswords.label "Contraseñas guardadas...">
+<!ENTITY menupassexceptions.label "Contraseñas guardadas - excepciones...">
+<!ENTITY menuexceptions.label "Protección JavaScript - excepciones...">
+<!ENTITY options.title "Configuración de Secure Login">
+<!ENTITY prefpanemainlabel "Principal">
+<!ENTITY prefpaneadvancedlabel "Avanzada">
+<!ENTITY prefpaneguilabel "Interfaz">
+<!ENTITY shortcuttext.label "Atajo del teclado:">
+<!ENTITY shortcutapply.label "Aplicar">
+<!ENTITY shortcutdisable.label "Deshabilitar">
+<!ENTITY shortcutinfo.label "Los cambios al atajo del teclado sólo tendrán efecto en nuevas vetanas de Firefox.">
+<!ENTITY viewcaption.label "Vista">
+<!ENTITY hidestatusbaricon.label "Ocultar icono de la barra de estado">
+<!ENTITY hidetoolsmenu.label "Ocultar entrada en el menú de herramientas">
+<!ENTITY hidecontextmenuitem.label "Ocultar entrada del menú contextual">
+<!ENTITY hidetoolbarbutton.label "Ocultar botón de la barra de herramientas">
+<!ENTITY hidetoolbarbuttonmenu.label "Ocultar botón de la barra de herramientas">
+<!ENTITY generalcaption.label "General">
+<!ENTITY searchloginsonload.label "Buscar automáticamente datos de sesiones y resaltar campos de los formularios">
+<!ENTITY skipduplicateactionforms.label "Omitir formularios duplicados">
+<!ENTITY autosubmitform.label "Enviar formularios de sesión automáticamente">
+<!ENTITY javascriptprotection.label "Activar la protección JavaScript para las sesiones">
+<!ENTITY showexceptions.label "Excepciones...">
+<!ENTITY soundcaption.label "Sonidos">
+<!ENTITY playLoginFoundSound.label "Reproducir un sonido cuando se encuentren credenciales">
+<!ENTITY playLoginSound.label "Reproducir sonido al iniciar sesión">
+<!ENTITY chooseFile.label "Elegir...">
+<!ENTITY playSound.label "Reproducir">
+<!ENTITY autofillformscaption.label "Autofill Forms Integration">
+<!ENTITY autofillformsonlogin.label "Fill out additional form fields automatically on login">
+<!ENTITY autofillformsmenu.label "Autofill Forms">
+<!ENTITY exceptions.title "Excepciones de la protección JavaScript">
+<!ENTITY exceptions.label "Sitios Web para los cuales no se usará protección JavaScript">
+<!ENTITY exceptionsitehead.label "Sitio Web">
+<!ENTITY addexception.label "Agregar">
+<!ENTITY removeselected.label "Borrar">
+<!ENTITY removeall.label "Borrar todo">
+<!ENTITY secureloginbookmarks.label "Enable Secure Login Bookmarks">
+<!ENTITY addsecureloginbookmark.label "Add Secure Login Bookmark...">
+<!ENTITY help.label "Ayuda...">
+<!ENTITY autofillformsmisc.label "Misc">
+<!ENTITY autofillformswelcome.label "Abrir página del complemento al actualizar">
+<!ENTITY generatepassword.label "Generar contraseña aleatoria">
