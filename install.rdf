@@ -181,6 +181,17 @@
 				<em:translator>RodrigoBiker</em:translator>
 			 </Description>
 		</em:localized>
+		<em:localized><!-- Spanish -->
+			<Description>
+				<em:locale>es</em:locale>
+				<em:name>Secure Login</em:name>
+				<em:description>Una extensión de sesiones similar a Wand login de Opera.</em:description>
+				<em:creator>Sebastian Tschan</em:creator>
+				<em:contributor>Sarah Avilov</em:contributor>
+				<em:homepageURL>http://firefox.add0n.com/secure-login.html</em:homepageURL>
+				<em:translator>Mauricio Navarro Miranda</em:translator>
+			 </Description>
+		</em:localized>
 		<em:localized><!-- Romanian -->
 			<Description>
 				<em:locale>ro-RO</em:locale>

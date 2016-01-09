@@ -14,6 +14,7 @@ locale    securelogin   ja-JP      chrome/locale/ja-JP/
 locale    securelogin   nl-NL      chrome/locale/nl-NL/
 locale    securelogin   pl-PL      chrome/locale/pl-PL/
 locale    securelogin   pt-BR      chrome/locale/pt-BR/
+locale    securelogin   es         chrome/locale/es/
 locale    securelogin   ro-RO      chrome/locale/ro-RO/
 locale    securelogin   ru-RU      chrome/locale/ru-RU/
 locale    securelogin   uk-UA     chrome/locale/uk-UA/
