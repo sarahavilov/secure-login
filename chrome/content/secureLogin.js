@@ -1739,16 +1739,17 @@ var secureLogin = {
     var modifiers = this.getShortcut()['modifiers'].join(' ');
     var key = this.getShortcut()['key'];
     var keycode = this.getShortcut()['keycode'];
+
     // Remove current key if existing:
-    if (document.getElementById('secureLoginShortCut')) {
-      document.getElementById('mainKeyset').removeChild(
-        document.getElementById('secureLoginShortCut')
-      );
+    var keyNode = document.getElementById('secureLoginShortCut');
+    if (keyNode) {
+      keyNode.parentNode.parentNode.removeChild(keyNode.parentNode);
     }
     // Check if keyboard shortcut is enabled (either key or keycode set):
     if (key || keycode) {
       // Create a key element:
       var keyNode = document.createElement('key');
+      var keySet = document.createElement('keyset');
       keyNode.setAttribute('id', 'secureLoginShortCut');
       keyNode.setAttribute('command', 'secureLogin');
       // Set the key attributes from saved shortcut:
@@ -1759,7 +1760,8 @@ var secureLogin = {
         keyNode.setAttribute('keycode', keycode);
       }
       // Add the key to the mainKeyset:
-      document.getElementById('mainKeyset').appendChild(keyNode);
+      keySet.appendChild(keyNode);
+      document.documentElement.appendChild(keySet);
     }
   },
   getFormattedShortcut: function(shortcutParam) {
@@ -2360,6 +2362,10 @@ var secureLogin = {
     function gen(charset, length) {
       return Array.apply(null, Array(length)).map(function () {return charset.charAt(Math.floor(Math.random() * charset.length))}).join('');
     }
-    alert(gen(this.secureLoginPrefs.getCharPref('pcharset'), this.secureLoginPrefs.getIntPref('plength')));
+    var pass = gen(this.secureLoginPrefs.getCharPref('pcharset'), this.secureLoginPrefs.getIntPref('plength'));
+    Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+      .getService(Components.interfaces.nsIClipboardHelper)
+      .copyString(pass);
+    this.notify(this.getStringBundle().getString('extensions.secureLogin@blueimp.net.name'), this.getStringBundle().getString('passwordCopied'));
   }
 }

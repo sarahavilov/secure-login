@@ -25,3 +25,20 @@ toolbar[iconsize="small"] .secureLoginButtonDisabled:hover:active,
 .secureLoginButtonDisabled:hover:active {
 	list-style-image: url("login-small-disabled.png");
 }
+
+/** Retina Display **/
+@media (min-resolution: 2dppx) {
+  toolbar[iconsize="small"] #secureLoginButton,
+  toolbar[iconsize="small"] .secureLoginButton,
+  .secureLoginIcon {
+    list-style-image: url("login.png");
+  }
+  toolbar[iconsize="small"] #secureLoginButton.secureLoginButtonDisabled,
+  toolbar[iconsize="small"] .secureLoginButtonDisabled,
+  .secureLoginIconDisabled {
+    list-style-image: url("login-disabled.png");
+  }
+  #secureLoginButton image {
+    width: 16px;
+  }
+}

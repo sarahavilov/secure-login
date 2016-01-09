@@ -16,8 +16,8 @@ locale    securelogin   pl-PL      chrome/locale/pl-PL/
 locale    securelogin   pt-BR      chrome/locale/pt-BR/
 locale    securelogin   ro-RO      chrome/locale/ro-RO/
 locale    securelogin   ru-RU      chrome/locale/ru-RU/
+locale    securelogin   uk-UA     chrome/locale/uk-UA/
 locale    securelogin   tr-TR      chrome/locale/tr-TR/
-locale    securelogin   uk-UA      chrome/locale/uk-UA/
 locale    securelogin   zh-CN      chrome/locale/zh-CN/
 locale    securelogin   zh-TW      chrome/locale/zh-TW/
 

@@ -20,7 +20,6 @@
 		<menu
 			id="secureLoginToolsMenu"
 			label="&toolsmenu.label;"
-			class="menu-iconic secureLoginIcon"
 			insertbefore="prefSep">
 			<menupopup
 				id="secureLoginToolsMenuPopup"
@@ -28,7 +27,6 @@
 				<menu
 					id="secureLoginToolsMenuAutofillFormsMenu"
 					label="&autofillformsmenu.label;"
-					class="menu-iconic autofillFormsIcon"
 					hidden="true">
 				</menu>
 				<menuseparator
@@ -38,7 +36,6 @@
 				<menuitem
 					id="secureLoginOptionsToolsMenuItem"
 					label="&menuoptions.label;"
-					class="menuitem-iconic secureLoginSettingsIcon"
 					oncommand="secureLogin.showDialog('chrome://secureLogin/content/secureLoginOptions.xul');"
 				/>
 				<menuseparator/>
@@ -78,7 +75,6 @@
 				<menuitem
 					id="secureLoginHelpToolsMenuItem"
 					label="&help.label;"
-					class="menuitem-iconic secureLoginHelpIcon"
 					oncommand="secureLogin.openHelp();"
 				/>
 			</menupopup>
@@ -98,7 +94,6 @@
 				<menu
 					id="secureLoginContextAutofillFormsMenu"
 					label="&autofillformsmenu.label;"
-					class="menu-iconic autofillFormsIcon"
 					hidden="true">
 				</menu>
 				<menuseparator
@@ -108,7 +103,6 @@
 				<menuitem
 					id="secureLoginOptionsContextItem"
 					label="&menuoptions.label;"
-					class="menuitem-iconic secureLoginSettingsIcon"
 					oncommand="secureLogin.showDialog('chrome://secureLogin/content/secureLoginOptions.xul');"
 				/>
 				<menuseparator/>
@@ -148,7 +142,6 @@
 				<menuitem
 					id="secureLoginHelpContextItem"
 					label="&help.label;"
-					class="menuitem-iconic secureLoginHelpIcon"
 					oncommand="secureLogin.openHelp();"
 				/>
 			</menupopup>
@@ -165,7 +158,7 @@
 			oncommand="secureLogin.login();"
 		/>
 	</commandset>
-	<keyset id="mainKeyset">
+	<keyset>
 		<key
 			id="secureLoginShortCut"
 			command="secureLogin"
@@ -185,7 +178,6 @@
 	<statusbar id="status-bar">
 		<statusbarpanel
 			id="secureLoginPanelIcon"
-			class="statusbarpanel-menu-iconic secureLoginIcon"
 			onclick="secureLogin.clickHandler(event);"
 			context="secureLoginContextmenu"
 			tooltip="secureLoginTooltip"
@@ -208,7 +200,6 @@
 				<menu
 					id="secureLoginButtonMenuAutofillFormsMenu"
 					label="&autofillformsmenu.label;"
-					class="menu-iconic autofillFormsIcon"
 					hidden="true">
 				</menu>
 				<menuseparator
@@ -218,7 +209,6 @@
 				<menuitem
 					id="secureLoginOptionsButtonMenuItem"
 					label="&menuoptions.label;"
-					class="menuitem-iconic secureLoginSettingsIcon"
 					oncommand="secureLogin.showDialog('chrome://secureLogin/content/secureLoginOptions.xul');"
 				/>
 				<menuseparator/>
@@ -258,7 +248,6 @@
 				<menuitem
 					id="secureLoginHelpButtonMenuItem"
 					label="&help.label;"
-					class="menuitem-iconic secureLoginHelpIcon"
 					oncommand="secureLogin.openHelp();"
 				/>
 			</menupopup>
@@ -276,7 +265,6 @@
 			accesskey="&logincontextmenuitem.accesskey;"
 			insertafter="context-selectall"
 			oncommand="secureLogin.login();"
-			class="menuitem-iconic secureLoginIcon"
 			hidden="true"
 		/>
 		<menu
@@ -284,7 +272,6 @@
 			label="&logincontextmenuitem.label;"
 			accesskey="&logincontextmenuitem.accesskey;"
 			insertafter="context-selectall"
-			class="menu-iconic secureLoginIcon"
 			hidden="true">
 			<menupopup
 				onpopupshowing="secureLogin.contextMenuSelectionLogin(this);"

@@ -43,6 +43,6 @@
 <!ENTITY secureloginbookmarks.label "Використовувати закладки Secure Login">
 <!ENTITY addsecureloginbookmark.label "Додати закладку Secure Login ...">
 <!ENTITY help.label "Довідка по Secure Login ...">
-<!ENTITY autofillformsmisc.label "Misc">
-<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
-<!ENTITY generatepassword.label "Generate a random password">
+<!ENTITY autofillformsmisc.label "Різне">
+<!ENTITY autofillformswelcome.label "Показувати сторінку вітання після оновлення">
+<!ENTITY generatepassword.label "Створити випадковий пароль (буде в буфері обміну)">

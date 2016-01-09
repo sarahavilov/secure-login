@@ -43,6 +43,6 @@
 <!ENTITY secureloginbookmarks.label "Ενεργοποίηση σελιδοδεικτών ασφαλούς σύνδεσης">
 <!ENTITY addsecureloginbookmark.label "Προσθήκη σελιδοδείκτη ασφαλούς σύνδεσης...">
 <!ENTITY help.label "Βοήθεια...">
-<!ENTITY autofillformsmisc.label "Misc">
-<!ENTITY autofillformswelcome.label "Open welcome page on upgrade">
-<!ENTITY generatepassword.label "Generate a random password">
+<!ENTITY autofillformsmisc.label "Διάφορα">
+<!ENTITY autofillformswelcome.label "Άνοιγμα σελίδας καλωσορίσματος κατά την αναβάθμιση">
+<!ENTITY generatepassword.label "Δημιουργία τυχαίου κωδικού πρόσβασης">

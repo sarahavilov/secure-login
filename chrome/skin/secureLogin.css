@@ -27,33 +27,6 @@ toolbarpaletteitem[place="palette"] > #secureLoginButton.secureLoginButtonDisabl
   list-style-image: url("login-disabled.png");
 }
 
-/** Retina Display **/
-@media (min-resolution: 2dppx) {
-  toolbar[iconsize="small"] #secureLoginButton,
-  toolbar[iconsize="small"] .secureLoginButton,
-  .secureLoginIcon {
-    list-style-image: url("login.png");
-  }
-  toolbar[iconsize="small"] #secureLoginButton.secureLoginButtonDisabled,
-  toolbar[iconsize="small"] .secureLoginButtonDisabled,
-  .secureLoginIconDisabled {
-    list-style-image: url("login-disabled.png");
-  }
-  #secureLoginButton image {
-    width: 16px;
-  }
-}
-
-.secureLoginSettingsIcon {
-  list-style-image: url("settings-small.png");
-}
-.secureLoginHelpIcon {
-  list-style-image: url("help-small.png");
-}
-.secureLoginUserIcon {
-  list-style-image: url("user-small.png");
-}
-
 statusbarpanel.secureLoginIcon {
   cursor: pointer;
 }
@@ -62,7 +35,7 @@ statusbarpanel.secureLoginIcon {
   margin-bottom: 10px;
 }
 #secureLoginTooltipTitleLabel {
-  font-weight: bold;  
+  font-weight: bold;
 }
 #secureLoginTooltipKeyboardShortcut {
   font-family:monospace;
