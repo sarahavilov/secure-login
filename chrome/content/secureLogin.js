@@ -47,8 +47,8 @@ var secureLogin = {
   // autoLogin exceptions list:
   autoLoginExceptions: null,
   //
-  action: function (elem, cmd) {
-    elem.setAttribute('data-sl-' + cmd, true);
+  action: function (elem, cmd, value) {
+    elem.setAttribute('data-sl-' + cmd, value);
     var wm = Components.classes['@mozilla.org/appshell/window-mediator;1']
       .getService(Components.interfaces.nsIWindowMediator);
     var browser = wm.getMostRecentWindow('navigator:browser').gBrowser.selectedBrowser;
@@ -647,13 +647,13 @@ var secureLogin = {
             var obj = {
                 usernameField: null,
                 passwordField: null
-              }
-              /*
-              if ("findLogins" in this.getLoginManager()) {
-                obj = this.getLoginManager().findLogins({}, host, targetHost, null)[0];
-              }
-              */
-              // Get valid login fields:
+            }
+            /*
+            if ("findLogins" in this.getLoginManager()) {
+              obj = this.getLoginManager().findLogins({}, host, targetHost, null)[0];
+            }
+            */
+            // Get valid login fields:
             var loginFields = this.getLoginFields(doc.forms[i], obj.usernameField, obj.passwordField, forced);
             if (loginFields) {
               if (this.secureLoginPrefs.getBoolPref('skipDuplicateActionForms')) {
@@ -1518,9 +1518,12 @@ var secureLogin = {
           }
         } else {
           // Fill the login fields:
-          if (usernameField)
-            usernameField.value = this.getUsernameFromLoginObject(this.secureLogins[selectedIndex]);
-          passwordField.value = this.getPasswordFromLoginObject(this.secureLogins[selectedIndex]);
+          if (usernameField) {
+            //usernameField.value = this.getUsernameFromLoginObject(this.secureLogins[selectedIndex]);
+            secureLogin.action(usernameField, 'value', this.getUsernameFromLoginObject(this.secureLogins[selectedIndex]));
+          }
+          //passwordField.value = this.getPasswordFromLoginObject(this.secureLogins[selectedIndex]);
+          secureLogin.action(passwordField, 'value', this.getPasswordFromLoginObject(this.secureLogins[selectedIndex]));
           if (this.secureLoginPrefs.getBoolPref('autoSubmitForm')) {
             // Prevent multiple submits (e.g. if submit is delayed) by setting a variable (after click on a submit button):
             var submitted = false;
