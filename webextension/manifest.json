@@ -1,0 +1,52 @@
+{
+  "manifest_version": 2,
+  "version": "0.1.3",
+  "name": "Secure Login (WebExtension)",
+  "description": "A login extension similar to Opera's Wand login",
+  "permissions": [
+    "storage",
+    "tabs",
+    "contextMenus",
+    "clipboardWrite",
+    "notifications",
+    "*://*/*",
+    "alarms"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts":[
+      "common.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "data/icons/16.png",
+      "32": "data/icons/32.png",
+      "64": "data/icons/64.png"
+    }
+  },
+  "icons": {
+    "16": "data/icons/16.png",
+    "24": "data/icons/24.png",
+    "32": "data/icons/32.png",
+    "64": "data/icons/64.png",
+    "128": "data/icons/128.png",
+    "256": "data/icons/256.png"
+  },
+  "web_accessible_resources": [
+    "data/select/*"
+  ],
+  "commands": {
+    "activate": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      },
+      "description": "Activate extension"
+    }
+  },
+  "homepage_url": "http://firefox.add0n.com/secure-login.html",
+  "options_ui": {
+    "page": "data/options/index.html",
+    "chrome_style": true
+  }
+}

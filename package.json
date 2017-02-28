@@ -1,0 +1,19 @@
+{
+  "title": "Secure Login (WebExtension)",
+  "name": "slogin",
+  "version": "0.1.3",
+  "description": "A login extension similar to Opera's Wand login",
+  "main": "common.js",
+  "author": "Sarah Avilov",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "hasEmbeddedWebExtension": true,
+  "permissions": {
+      "multiprocess": true
+  },
+  "license": "MPLv2.0",
+  "keywords": [
+    "jetpack"
+  ]
+}
