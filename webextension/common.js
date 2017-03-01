@@ -74,7 +74,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
 var cache = {};
 
-function update (tabId, url) {
+function update (tabId, url, callback = function () {}) {
   let hostname = (new URL(url)).hostname;
   if (!url || !url.startsWith('http')) {
     return;
@@ -99,6 +99,9 @@ function update (tabId, url) {
           tabId,
           text: response && response.length ? response.length + '' : ''
         });
+        if (response) { // prevent loops
+          callback();
+        }
       }
     });
   }
@@ -121,9 +124,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 chrome.tabs.onRemoved.addListener(tabId => delete cache[tabId]);
 
 chrome.alarms.onAlarm.addListener(() => {
-  chrome.tabs.query({}, tabs => {
-    // only update a few first tabs
-    tabs.slice(0, 10).filter(tab => tab.url.startsWith('http')).forEach(tab => update(tab.id, tab.url));
+  chrome.tabs.query({
+    url: '*://*/*'
+  }, tabs => {
+    // only update a few first tabs to prevent freezing
+    tabs.slice(0, 10).forEach(tab => update(tab.id, tab.url));
   });
 });
 chrome.storage.local.get({
@@ -207,7 +212,7 @@ function onCommand (tab) {
     notify('No matched credential is detected for this domain');
   }
   else {
-    notify('Please refresh this tab for fetching credentials');
+    update(tab.id, tab.url, () => onCommand(tab));
   }
 }
 
