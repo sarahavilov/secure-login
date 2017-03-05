@@ -17,12 +17,18 @@ chrome.contextMenus.create({
 });
 
 function notify (message) {
-  chrome.notifications.create({
-    title: 'Secure Login',
-    type: 'basic',
-    iconUrl: 'data/icons/128.png',
-    message
-  });
+  chrome.storage.local.get({
+    notify: true
+  }, (prefs) => {
+    if (prefs.notify) {
+      chrome.notifications.create({
+        title: 'Secure Login',
+        type: 'basic',
+        iconUrl: 'data/icons/128.png',
+        message
+      });
+    }
+  })
 }
 
 function protect(str) {

@@ -6,12 +6,14 @@ function restore() {
     length: 12,
     delay: 2,
     submit: true,
+    notify: true,
     faqs: false
   }, (prefs) => {
     document.getElementById('charset').value = prefs.charset;
     document.getElementById('length').value = prefs.length;
     document.getElementById('delay').value = prefs.delay;
     document.getElementById('submit').checked = prefs.submit;
+    document.getElementById('notify').checked = prefs.notify;
     document.getElementById('faqs').checked = prefs.faqs;
   });
 }
@@ -21,12 +23,14 @@ function save() {
   let length = Math.max(document.getElementById('length').value, 3);
   let delay = Math.max(document.getElementById('delay').value, 1);
   let submit = document.getElementById('submit').checked;
+  let notify = document.getElementById('notify').checked;
   let faqs = document.getElementById('faqs').checked;
   chrome.storage.local.set({
     charset,
     length,
     delay,
     submit,
+    notify,
     faqs
   }, () => {
     let status = document.getElementById('status');
