@@ -28,7 +28,7 @@ function notify (message) {
         message
       });
     }
-  })
+  });
 }
 
 function protect(str) {
@@ -162,15 +162,15 @@ function login (tabId, credential) {
           [...f.querySelectorAll('input:not([type=password])')]
             .filter(i => (i.type === 'text' || i.type === 'email'))
             .forEach(input => {
-              console.error(input);
               input.value = '${protect(credential.username)}';
               input.dispatchEvent(new Event('change', {bubbles: true}));
+              input.dispatchEvent(new Event('input', {bubbles: true}));
             });
           [...f.querySelectorAll('input[type=password]')]
             .forEach(input => {
-              console.error(input);
               input.value = '${protect(credential.password)}';
               input.dispatchEvent(new Event('change', {bubbles: true}));
+              input.dispatchEvent(new Event('input', {bubbles: true}));
             });
           // submit
           if (${prefs.submit}) {
