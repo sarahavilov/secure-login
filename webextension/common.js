@@ -54,6 +54,7 @@ function generate (tabId) {
     .map(() => prefs.charset.charAt(Math.floor(Math.random() * prefs.charset.length)))
     .join('');
   // copy to clipboard
+
   chrome.tabs.executeScript(tabId, {
     runAt: 'document_start',
     allFrames: false,
@@ -65,9 +66,12 @@ function generate (tabId) {
       window.focus();
       document.execCommand('Copy', false, null);
     `
+  }, () => {
+    notify(
+      chrome.runtime.lastError ? 'Cannot copy password to the clipboard on this page' : 'Generated password is copied to the clipboard'
+    );
   });
-  // diplay notification
-  notify('Generated password is copied to the clipboard');
+  notify();
 }
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -194,6 +198,10 @@ function login (tabId, credential) {
         }
       });
     `
+  }, () => {
+    if (chrome.runtime.lastError) {
+      notify(chrome.runtime.lastError.message);
+    }
   });
 }
 
