@@ -1,7 +1,7 @@
 {
   "title": "Secure Login (WebExtension)",
   "name": "slogin",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "A login extension similar to Opera's Wand login",
   "main": "common.js",
   "author": "Sarah Avilov",

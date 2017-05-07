@@ -45,3 +45,8 @@ document.addEventListener('keydown', e => {
     document.querySelector('[type=submit]').click();
   }
 });
+
+// keep the panel's focus
+window.addEventListener('blur', () => {
+  window.setTimeout(() => window.focus(), 0);
+});

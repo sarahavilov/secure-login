@@ -1,5 +1,23 @@
 'use strict';
 
+var prefs = {
+  charset: 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890',
+  length: 12,
+  delay: 2,
+  submit: true,
+  notify: true,
+  badge: true,
+  color: '#6e6e6e',
+  faqs: false,
+  version: null
+};
+
+function color () {
+  chrome.browserAction.setBadgeBackgroundColor({
+    color: prefs.color
+  });
+}
+
 chrome.contextMenus.create({
   id: 'open-password-manager',
   title: 'Saved passwords...',
@@ -17,47 +35,39 @@ chrome.contextMenus.create({
 });
 
 function notify (message) {
-  chrome.storage.local.get({
-    notify: true
-  }, (prefs) => {
-    if (prefs.notify) {
-      chrome.notifications.create({
-        title: 'Secure Login',
-        type: 'basic',
-        iconUrl: 'data/icons/128.png',
-        message
-      });
-    }
-  });
+  if (prefs.notify) {
+    chrome.notifications.create({
+      title: 'Secure Login',
+      type: 'basic',
+      iconUrl: 'data/icons/128.png',
+      message
+    });
+  }
 }
 
 function protect(str) {
-  return (str || '').replace(/\\/g, '\\\\').replace(/\'/g, '\\\'');
+  return (str || '').replace(/\`/g, '');
 }
 
 function generate (tabId) {
-  chrome.storage.local.get({
-    charset: 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890',
-    length: 12
-  }, prefs => {
-    let password = Array.apply(null, new Array(prefs.length))
-      .map(() => prefs.charset.charAt(Math.floor(Math.random() * prefs.charset.length)))
-      .join('');
-    // copy to clipboard
-    chrome.tabs.executeScript(tabId, {
-      runAt: 'document_start',
-      allFrames: false,
-      code: `
-        document.oncopy = (e) => {
-          e.clipboardData.setData('text/plain', '${protect(password)}');
-          e.preventDefault();
-        };
-        document.execCommand('Copy', false, null);
-      `
-    });
-    // diplay notification
-    notify('Generated password is copied to the clipboard');
+  let password = Array.apply(null, new Array(prefs.length))
+    .map(() => prefs.charset.charAt(Math.floor(Math.random() * prefs.charset.length)))
+    .join('');
+  // copy to clipboard
+  chrome.tabs.executeScript(tabId, {
+    runAt: 'document_start',
+    allFrames: false,
+    code: `
+      document.oncopy = (e) => {
+        e.clipboardData.setData('text/plain', String.raw\`${protect(password)} \`.slice(0, -1));
+        e.preventDefault();
+      };
+      window.focus();
+      document.execCommand('Copy', false, null);
+    `
   });
+  // diplay notification
+  notify('Generated password is copied to the clipboard');
 }
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -81,6 +91,10 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 var cache = {};
 
 function update (tabId, url, callback = function () {}) {
+  if (url.startsWith('about:accounts')) {
+    url = 'https://accounts.firefox.com';
+  }
+
   let hostname = (new URL(url)).hostname;
   if (!url || !url.startsWith('http')) {
     return;
@@ -103,7 +117,7 @@ function update (tabId, url, callback = function () {}) {
         cache[tabId].credentials = response;
         chrome.browserAction.setBadgeText({
           tabId,
-          text: response && response.length ? response.length + '' : ''
+          text: response && response.length && prefs.badge ? response.length + '' : ''
         });
         if (response) { // prevent loops
           callback();
@@ -116,7 +130,7 @@ function update (tabId, url, callback = function () {}) {
     let response = cache[tabId].credentials;
     chrome.browserAction.setBadgeText({
       tabId,
-      text: response && response.length ? response.length + '' : ''
+      text: response && response.length && prefs.badge ? response.length + '' : ''
     });
   }
 }
@@ -137,60 +151,49 @@ chrome.alarms.onAlarm.addListener(() => {
     tabs.slice(0, 10).forEach(tab => update(tab.id, tab.url));
   });
 });
-chrome.storage.local.get({
-  delay: 2
-}, prefs => {
-  chrome.alarms.create({
-    when: Date.now() + prefs.delay * 1000
-  });
-});
 
 function login (tabId, credential) {
-  chrome.storage.local.get({
-    submit: true
-  }, prefs => {
-    chrome.tabs.executeScript(tabId, {
-      runAt: 'document_start',
-      allFrames: true,
-      code: `
-        [...document.querySelectorAll('input[type=password]')]
-        .map(p => p.form)
-        .filter(f => f)
-        .filter((f, i, l) => l.indexOf(f) === i)
-        .forEach(f => {
-          // insert username and password
-          [...f.querySelectorAll('input:not([type=password])')]
-            .filter(i => (i.type === 'text' || i.type === 'email'))
-            .forEach(input => {
-              input.value = '${protect(credential.username)}';
-              input.dispatchEvent(new Event('change', {bubbles: true}));
-              input.dispatchEvent(new Event('input', {bubbles: true}));
-            });
-          [...f.querySelectorAll('input[type=password]')]
-            .forEach(input => {
-              input.value = '${protect(credential.password)}';
-              input.dispatchEvent(new Event('change', {bubbles: true}));
-              input.dispatchEvent(new Event('input', {bubbles: true}));
-            });
-          // submit
-          if (${prefs.submit}) {
-            let button = f.querySelector('input[type=submit]') || f.querySelector('[type=submit]');
-            if (button) {
-              button.click();
+  chrome.tabs.executeScript(tabId, {
+    runAt: 'document_start',
+    allFrames: true,
+    code: `
+      [...document.querySelectorAll('input[type=password]')]
+      .map(p => p.form)
+      .filter(f => f)
+      .filter((f, i, l) => l.indexOf(f) === i)
+      .forEach(f => {
+        // insert username and password
+        [...f.querySelectorAll('input:not([type=password])')]
+          .filter(i => (i.type === 'text' || i.type === 'email'))
+          .forEach(input => {
+            input.value = String.raw\`${protect(credential.username)} \`.slice(0, -1);
+            input.dispatchEvent(new Event('change', {bubbles: true}));
+            input.dispatchEvent(new Event('input', {bubbles: true}));
+          });
+        [...f.querySelectorAll('input[type=password]')]
+          .forEach(input => {
+            input.value = String.raw\`${protect(credential.password)} \`.slice(0, -1);
+            input.dispatchEvent(new Event('change', {bubbles: true}));
+            input.dispatchEvent(new Event('input', {bubbles: true}));
+          });
+        // submit
+        if (${prefs.submit}) {
+          let button = f.querySelector('input[type=submit]') || f.querySelector('[type=submit]');
+          if (button) {
+            button.click();
+          }
+          else {
+            let onsubmit = f.getAttribute('onsubmit');
+            if (onsubmit && onsubmit.indexOf('return false') === -1) {
+              f.onsubmit();
             }
             else {
-              let onsubmit = f.getAttribute('onsubmit');
-              if (onsubmit && onsubmit.indexOf('return false') === -1) {
-                f.onsubmit();
-              }
-              else {
-                f.submit();
-              }
+              f.submit();
             }
           }
-        });
-      `
-    });
+        }
+      });
+    `
   });
 }
 
@@ -261,10 +264,7 @@ chrome.commands.onCommand.addListener((command) => {
 });
 
 // FAQs & Feedback
-chrome.storage.local.get({
-  version: null,
-  faqs: false
-}, prefs => {
+function faqs () {
   let version = chrome.runtime.getManifest().version;
   if (prefs.version !== version && (prefs.version ? prefs.faqs : true)) {
     chrome.storage.local.set({version}, () => {
@@ -274,8 +274,29 @@ chrome.storage.local.get({
       });
     });
   }
-});
+}
 (function () {
   let {name, version} = chrome.runtime.getManifest();
   chrome.runtime.setUninstallURL('http://add0n.com/feedback.html?name=' + name + '&version=' + version);
 })();
+
+// init
+chrome.storage.local.get(prefs, ps => {
+  prefs = ps;
+  // color
+  color();
+  // get logins
+  chrome.alarms.create({
+    when: Date.now() + prefs.delay * 1000
+  });
+  // faqs
+  faqs();
+});
+chrome.storage.onChanged.addListener(ps => {
+  Object.keys(ps).forEach(pref => {
+    prefs[pref] = ps[pref].newValue;
+    if (pref === 'color') {
+      color();
+    }
+  });
+});
