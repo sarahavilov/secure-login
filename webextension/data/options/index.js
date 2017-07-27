@@ -9,40 +9,29 @@ function restore() {
     notify: true,
     badge: true,
     color: '#6e6e6e',
-    faqs: false
-  }, (prefs) => {
-    document.getElementById('charset').value = prefs.charset;
-    document.getElementById('length').value = prefs.length;
-    document.getElementById('delay').value = prefs.delay;
-    document.getElementById('submit').checked = prefs.submit;
-    document.getElementById('notify').checked = prefs.notify;
-    document.getElementById('badge').checked = prefs.badge;
-    document.getElementById('color').value = prefs.color;
-    document.getElementById('faqs').checked = prefs.faqs;
+    faqs: true,
+    masterpassword: true
+  }, prefs => {
+    Object.entries(prefs).forEach(([key, value]) => {
+      document.getElementById(key)[typeof value === 'boolean' ? 'checked' : 'value'] = value;
+    });
   });
 }
 
 function save() {
-  let charset = document.getElementById('charset').value;
-  let length = Math.max(document.getElementById('length').value, 3);
-  let delay = Math.max(document.getElementById('delay').value, 1);
-  let submit = document.getElementById('submit').checked;
-  let notify = document.getElementById('notify').checked;
-  let badge = document.getElementById('badge').checked;
-  let color = document.getElementById('color').value;
-  let faqs = document.getElementById('faqs').checked;
   chrome.storage.local.set({
-    charset,
-    length,
-    delay,
-    submit,
-    notify,
-    badge,
-    color,
-    faqs
+    charset: document.getElementById('charset').value,
+    length: Math.max(document.getElementById('length').value, 3),
+    delay: Math.max(document.getElementById('delay').value, 1),
+    submit: document.getElementById('submit').checked,
+    notify: document.getElementById('notify').checked,
+    badge: document.getElementById('badge').checked,
+    color: document.getElementById('color').value,
+    faqs: document.getElementById('faqs').checked,
+    masterpassword: document.getElementById('masterpassword').checked
   }, () => {
-    let status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    const status = document.getElementById('status');
+    status.textContent = chrome.i18n.getMessage('msgSaved');
     setTimeout(() => status.textContent = '', 750);
     restore();
   });
@@ -50,3 +39,8 @@ function save() {
 
 document.addEventListener('DOMContentLoaded', restore);
 document.getElementById('save').addEventListener('click', save);
+
+// localization
+[...document.querySelectorAll('[data-i18n]')].forEach(e => {
+  e.textContent = chrome.i18n.getMessage(e.dataset.i18n);
+});

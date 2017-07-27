@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = chrome.i18n.getMessage;
 var prefs = {
   charset: 'qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890',
   length: 12,
@@ -9,10 +10,12 @@ var prefs = {
   badge: true,
   color: '#6e6e6e',
   faqs: false,
-  version: null
+  version: null,
+  masterpassword: true
 };
+var storage = {};
 
-function color () {
+function color() {
   chrome.browserAction.setBadgeBackgroundColor({
     color: prefs.color
   });
@@ -20,24 +23,29 @@ function color () {
 
 chrome.contextMenus.create({
   id: 'open-password-manager',
-  title: 'Saved passwords...',
+  title: _('contextPassMG'),
   contexts: ['browser_action']
 });
 chrome.contextMenus.create({
   id: 'generate-random-password',
-  title: 'Generate a random password',
+  title: _('contextRandom'),
+  contexts: ['browser_action']
+});
+chrome.contextMenus.create({
+  id: 'fill-only',
+  title: _('contextNoSubmit'),
   contexts: ['browser_action']
 });
 chrome.contextMenus.create({
   id: 'help',
-  title: 'Help...',
+  title: _('contextHelp'),
   contexts: ['browser_action']
 });
 
-function notify (message) {
+function notify(message) {
   if (prefs.notify) {
     chrome.notifications.create({
-      title: 'Secure Login',
+      title: _('appTitle'),
       type: 'basic',
       iconUrl: 'data/icons/128.png',
       message
@@ -45,37 +53,35 @@ function notify (message) {
   }
 }
 
-function protect(str) {
-  return (str || '').replace(/\`/g, '');
-}
-
-function generate (tabId) {
-  let password = Array.apply(null, new Array(prefs.length))
+function generate(tabId) {
+  const password = Array.apply(null, new Array(prefs.length))
     .map(() => prefs.charset.charAt(Math.floor(Math.random() * prefs.charset.length)))
     .join('');
   // copy to clipboard
-
+  const id = Math.random();
+  storage[id] = password;
   chrome.tabs.executeScript(tabId, {
     runAt: 'document_start',
     allFrames: false,
     code: `
-      document.oncopy = (e) => {
-        e.clipboardData.setData('text/plain', String.raw\`${protect(password)} \`.slice(0, -1));
-        e.preventDefault();
-      };
-      window.focus();
-      document.execCommand('Copy', false, null);
+      chrome.runtime.sendMessage({
+        cmd: 'send-vars',
+        id: ${id}
+      }, password => {
+        document.oncopy = (e) => {
+          e.clipboardData.setData('text/plain', password);
+          e.preventDefault();
+        };
+        window.focus();
+        document.execCommand('Copy', false, null);
+      });
     `
-  }, () => {
-    notify(
-      chrome.runtime.lastError ? 'Cannot copy password to the clipboard on this page' : 'Generated password is copied to the clipboard'
-    );
-  });
+  }, () => notify(_(chrome.runtime.lastError ? 'msgNoCopy' : 'msgCopied')));
   notify();
 }
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  let cmd = info.menuItemId;
+  const cmd = info.menuItemId;
   if (cmd === 'open-password-manager') {
     chrome.runtime.sendMessage({
       cmd: 'open-password-manager',
@@ -90,16 +96,23 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       url: 'http://firefox.add0n.com/secure-login.html?from=context'
     });
   }
+  else if (cmd === 'fill-only') {
+    chrome.tabs.executeScript(tab.id, {
+      runAt: 'document_start',
+      allFrames: true,
+      code: 'window.signore = true;'
+    }, () => onCommand(tab));
+  }
 });
 
 var cache = {};
 
-function update (tabId, url, callback = function () {}) {
+function update(tabId, url, callback = function () {}) {
   if (url.startsWith('about:accounts')) {
     url = 'https://accounts.firefox.com';
   }
 
-  let hostname = (new URL(url)).hostname;
+  const hostname = (new URL(url)).hostname;
   if (!url || !url.startsWith('http')) {
     return;
   }
@@ -121,7 +134,7 @@ function update (tabId, url, callback = function () {}) {
         cache[tabId].credentials = response;
         chrome.browserAction.setBadgeText({
           tabId,
-          text: response && response.length && prefs.badge ? response.length + '' : ''
+          text: response && response.length && prefs.badge ? String(response.length) : ''
         });
         if (response) { // prevent loops
           callback();
@@ -131,16 +144,16 @@ function update (tabId, url, callback = function () {}) {
   }
   // only update badge on refresh
   else if (cache[tabId]) {
-    let response = cache[tabId].credentials;
+    const response = cache[tabId].credentials;
     chrome.browserAction.setBadgeText({
       tabId,
-      text: response && response.length && prefs.badge ? response.length + '' : ''
+      text: response && response.length && prefs.badge ? String(response.length) : ''
     });
   }
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  let url = tab.url;
+  const url = tab.url;
   if (changeInfo.url || changeInfo.favIconUrl) {
     update(tabId, url);
   }
@@ -156,46 +169,64 @@ chrome.alarms.onAlarm.addListener(() => {
   });
 });
 
-function login (tabId, credential) {
+function login(tabId, credential) {
+  const id = Math.random();
+  storage[id] = {
+    username: credential.username,
+    password: credential.password,
+  };
   chrome.tabs.executeScript(tabId, {
     runAt: 'document_start',
     allFrames: true,
     code: `
-      [...document.querySelectorAll('input[type=password]')]
-      .map(p => p.form)
-      .filter(f => f)
-      .filter((f, i, l) => l.indexOf(f) === i)
-      .forEach(f => {
-        // insert username and password
-        [...f.querySelectorAll('input:not([type=password])')]
-          .filter(i => (i.type === 'text' || i.type === 'email'))
-          .forEach(input => {
-            input.value = String.raw\`${protect(credential.username)} \`.slice(0, -1);
-            input.dispatchEvent(new Event('change', {bubbles: true}));
-            input.dispatchEvent(new Event('input', {bubbles: true}));
-          });
-        [...f.querySelectorAll('input[type=password]')]
-          .forEach(input => {
-            input.value = String.raw\`${protect(credential.password)} \`.slice(0, -1);
-            input.dispatchEvent(new Event('change', {bubbles: true}));
-            input.dispatchEvent(new Event('input', {bubbles: true}));
-          });
-        // submit
-        if (${prefs.submit}) {
-          let button = f.querySelector('input[type=submit]') || f.querySelector('[type=submit]');
-          if (button) {
-            button.click();
+      chrome.runtime.sendMessage({
+        cmd: 'send-vars',
+        id: ${id}
+      }, ({username, password, submit}) => {
+        console.log(username, password, submit);
+        [...document.querySelectorAll('input[type=password]')]
+        .map(p => p.form)
+        .filter(f => f)
+        .filter(f => f.name && f.name.indexOf('reg') !== -1 ? false : true)
+        .filter((f, i, l) => l.indexOf(f) === i)
+        .forEach(f => {
+          console.log(f);
+          // insert username and password
+          [...f.querySelectorAll('input:not([type=password])')]
+            .filter(i => (i.type === 'text' || i.type === 'email'))
+            .forEach(input => {
+              input.value = username;
+              input.dispatchEvent(new Event('change', {bubbles: true}));
+              input.dispatchEvent(new Event('input', {bubbles: true}));
+            });
+          [...f.querySelectorAll('input[type=password]')]
+            .forEach(input => {
+              input.value = password;
+              input.dispatchEvent(new Event('change', {bubbles: true}));
+              input.dispatchEvent(new Event('input', {bubbles: true}));
+            });
+          // submit
+          if (window.signore === true) {
+            delete window.signore;
+            return;
           }
-          else {
-            let onsubmit = f.getAttribute('onsubmit');
-            if (onsubmit && onsubmit.indexOf('return false') === -1) {
-              f.onsubmit();
+          if (${prefs.submit}) {
+            const button = f.querySelector('input[type=submit]') || f.querySelector('[type=submit]') ||
+              f.querySelector('button') || f.querySelector('input[type=button');
+            if (button) {
+              button.click();
             }
             else {
-              f.submit();
+              const onsubmit = f.getAttribute('onsubmit');
+              if (onsubmit && onsubmit.indexOf('return false') === -1) {
+                f.onsubmit();
+              }
+              else {
+                f.submit();
+              }
             }
           }
-        }
+        });
       });
     `
   }, () => {
@@ -205,7 +236,7 @@ function login (tabId, credential) {
   });
 }
 
-function select (tabId) {
+function select(tabId) {
   chrome.tabs.executeScript(tabId, {
     runAt: 'document_start',
     allFrames: false,
@@ -213,11 +244,11 @@ function select (tabId) {
   });
 }
 
-function onCommand (tab) {
-  let tabId = tab.id;
+function onCommand(tab) {
+  const tabId = tab.id;
 
   if (cache[tabId] && cache[tabId].credentials && cache[tabId].credentials.length) {
-    let credentials = cache[tabId].credentials;
+    const credentials = cache[tabId].credentials;
     if (credentials.length === 1) {
       login(tabId, credentials[0]);
     }
@@ -236,14 +267,19 @@ function onCommand (tab) {
 chrome.browserAction.onClicked.addListener(onCommand);
 
 chrome.runtime.onMessage.addListener((request, sender, response) => {
-  let tabId = sender.tab.id;
+  const tabId = sender.tab.id;
 
   if (request.cmd === 'login-with') {
-    let credential = cache[tabId].credentials[request.id];
+    const credential = cache[tabId].credentials[request.id];
     login(tabId, credential);
   }
   else if (request.cmd === 'get-usernames') {
     response(cache[tabId].credentials.map(o => o.username));
+  }
+  else if (request.cmd === 'send-vars') {
+    console.log(storage[request.id]);
+    response(storage[request.id]);
+    delete storage[request.id];
   }
 
   if (request.cmd === 'close-me' || request.cmd === 'login-with') {
@@ -260,7 +296,7 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
   }
 });
 
-chrome.commands.onCommand.addListener((command) => {
+chrome.commands.onCommand.addListener(command => {
   if (command === 'activate') {
     chrome.tabs.query({
       active: true,
@@ -272,9 +308,10 @@ chrome.commands.onCommand.addListener((command) => {
 });
 
 // FAQs & Feedback
-function faqs () {
-  let version = chrome.runtime.getManifest().version;
+function faqs() {
+  const version = chrome.runtime.getManifest().version;
   if (prefs.version !== version && (prefs.version ? prefs.faqs : true)) {
+    console.log(version, prefs.version);
     chrome.storage.local.set({version}, () => {
       chrome.tabs.create({
         url: 'http://firefox.add0n.com/secure-login.html?version=' + version +
@@ -283,8 +320,8 @@ function faqs () {
     });
   }
 }
-(function () {
-  let {name, version} = chrome.runtime.getManifest();
+(function() {
+  const {name, version} = chrome.runtime.getManifest();
   chrome.runtime.setUninstallURL('http://add0n.com/feedback.html?name=' + name + '&version=' + version);
 })();
 
@@ -299,6 +336,12 @@ chrome.storage.local.get(prefs, ps => {
   });
   // faqs
   faqs();
+  // master password
+  if (prefs.masterpassword) {
+    chrome.runtime.sendMessage({
+      cmd: 'activate-password-manager'
+    });
+  }
 });
 chrome.storage.onChanged.addListener(ps => {
   Object.keys(ps).forEach(pref => {

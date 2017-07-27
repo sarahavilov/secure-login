@@ -1,0 +1,68 @@
+{
+  "appTitle": {
+    "message": "Secure Login"
+  },
+  "appDesc": {
+    "message": "A login extension similar to Opera's Wand login"
+  },
+  "optionsCharSet": {
+    "message": "Password generation character set:"
+  },
+  "optionsCharLen": {
+    "message": "Password generation length:"
+  },
+  "optionsSubmit": {
+    "message": "Submit login form automatically:"
+  },
+  "optionsDelay": {
+    "message": "Delay on updating the toolbar badge after startup (in seconds):"
+  },
+  "optionsNotification": {
+    "message": "Display desktop notifications:"
+  },
+  "optionsBadge": {
+    "message": "Display badge number (number of logins):"
+  },
+  "optionsBGColor": {
+    "message": "Badge background color:"
+  },
+  "optionsMPassword": {
+    "message": "Ask for the master password once after startup:"
+  },
+  "optionsFAQ": {
+    "message": "Open FAQs on updates:"
+  },
+  "selectTitle": {
+    "message": "Multiple credentials detected"
+  },
+  "contextPassMG": {
+    "message": "Saved passwords..."
+  },
+  "contextRandom": {
+    "message": "Generate a random password"
+  },
+  "contextNoSubmit": {
+    "message": "Fill login forms (no submission)"
+  },
+  "contextHelp": {
+    "message": "Help..."
+  },
+  "save": {
+    "message": "Save"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "msgSaved": {
+    "message": "Options are saved"
+  },
+  "msgNoCopy": {
+    "message": "Cannot copy password to the clipboard on this page. Is this a protected page?"
+  },
+  "msgCopied": {
+    "message": "Generated password is copied to the clipboard"
+  }
+}

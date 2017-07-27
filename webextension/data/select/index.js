@@ -3,7 +3,7 @@
 var select = document.querySelector('select');
 
 function add (login, id) {
-  let option = document.createElement('option');
+  const option = document.createElement('option');
   option.value = id;
   option.textContent = login;
   if (id === 0) {
@@ -13,17 +13,17 @@ function add (login, id) {
 }
 
 document.addEventListener('click', e => {
-  let cmd = e.target.dataset.cmd;
+  const cmd = e.target.dataset.cmd;
   if (cmd === 'cancel') {
     chrome.runtime.sendMessage({
       cmd: 'close-me'
     });
   }
 });
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', e => {
   chrome.runtime.sendMessage({
     cmd: 'login-with',
-    id: +document.querySelector('select').value
+    id: Number(document.querySelector('select').value)
   });
   e.preventDefault();
 });
@@ -49,4 +49,9 @@ document.addEventListener('keydown', e => {
 // keep the panel's focus
 window.addEventListener('blur', () => {
   window.setTimeout(() => window.focus(), 0);
+});
+
+// localization
+[...document.querySelectorAll('[data-i18n]')].forEach(e => {
+  e[e.dataset.value || 'textContent'] = chrome.i18n.getMessage(e.dataset.i18n);
 });

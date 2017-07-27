@@ -1,3 +1,4 @@
+/* globals require */
 'use strict';
 
 var webExtension = require('sdk/webextension');
@@ -9,14 +10,8 @@ var nsILoginManager = Cc['@mozilla.org/login-manager;1'].getService(Ci.nsILoginM
 // to open password manager
 var {openDialog} = require('sdk/window/utils');
 
-// make sure master password is called once after startup
-timers.setTimeout(() => passwords.search({
-  url: 'http://www.example.com',
-  onComplete: function () {}
-}), 10000);
-
 webExtension.startup().then(api => {
-  let browser = api.browser;
+  const browser = api.browser;
 
   browser.runtime.onMessage.addListener((request, sender, response) => {
     if (request.cmd === 'password-search') {
@@ -37,6 +32,13 @@ webExtension.startup().then(api => {
         features: 'chrome=yes,resizable=yes,toolbar=yes,centerscreen=yes,modal=no,dependent=no,dialog=no',
         args: {filterString: request.hostname}
       });
+    }
+    else if (request.cmd === 'activate-password-manager') {
+      // make sure master password is called once after startup
+      timers.setTimeout(() => passwords.search({
+        url: 'http://www.example.com',
+        onComplete: function () {}
+      }), 5000);
     }
   });
 }).catch(e => console.error(e));

@@ -1,0 +1,68 @@
+{
+  "appTitle": {
+    "message": "Secure Login"
+  },
+  "appDesc": {
+    "message": "Una estensione che emula la funzione Wand del browser Opera"
+  },
+  "optionsCharSet": {
+    "message": "Set di caratteri per la generazione della password:"
+  },
+  "optionsCharLen": {
+    "message": "Lunghezza della password generata:"
+  },
+  "optionsSubmit": {
+    "message": "Invia automaticamente i dati di accesso:"
+  },
+  "optionsDelay": {
+    "message": "Ritardo nell'aggiornare l'etichetta sulla Barra degli strumenti dopo l'avvio (in secondi):"
+  },
+  "optionsNotification": {
+    "message": "Visualizza notifiche desktop:"
+  },
+  "optionsBadge": {
+    "message": "Visualizza il numero degli accessi sull'etichetta:"
+  },
+  "optionsBGColor": {
+    "message": "Colore di sfondo dell'etichetta:"
+    },
+  "optionsMPassword": {
+    "message": "Richiedi la password principale una volta dopo l'avvio:"
+  }, 
+  "optionsFAQ": {
+    "message": "Apri la pagina delle FAQ dopo un aggiornamento:"
+  },
+  "selectTitle": {
+    "message": "Individuate più credenziali"
+  },
+  "contextPassMG": {
+    "message": "Password salvate..."
+  },
+  "contextRandom": {
+    "message": "Genera una password casuale"
+  },
+  "contextNoSubmit": {
+    "message": "Inserisci i dati di accesso ma non accedere"
+  },
+  "contextHelp": {
+    "message": "Aiuto..."
+  },
+  "save": {
+    "message": "Salva"
+  },
+  "cancel": {
+    "message": "Annulla"
+  },
+  "ok": {
+    "message": "OK"
+  },
+  "msgSaved": {
+    "message": "Opzioni salvate"
+  },
+  "msgNoCopy": {
+    "message": "Impossibile copiare la password negli appunti in questa pagina. La pagina è protetta?"
+  },
+  "msgCopied": {
+    "message": "La password generata è stata copiata negli appunti"
+  }
+}
