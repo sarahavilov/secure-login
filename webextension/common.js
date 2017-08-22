@@ -54,8 +54,10 @@ function notify(message) {
 }
 
 function generate(tabId) {
-  const password = Array.apply(null, new Array(prefs.length))
-    .map(() => prefs.charset.charAt(Math.floor(Math.random() * prefs.charset.length)))
+  const array = new Uint8Array(prefs.length);
+  window.crypto.getRandomValues(array);
+  const password = [...array].map(n => Math.floor(n / 256 * prefs.charset.length) - 1)
+    .map(n => prefs.charset[n])
     .join('');
   // copy to clipboard
   const id = Math.random();
@@ -277,9 +279,8 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
     response(cache[tabId].credentials.map(o => o.username));
   }
   else if (request.cmd === 'send-vars') {
-    console.log(storage[request.id]);
     response(storage[request.id]);
-    delete storage[request.id];
+    window.setTimeout(() => delete storage[request.id], 2000);
   }
 
   if (request.cmd === 'close-me' || request.cmd === 'login-with') {
